@@ -11,8 +11,7 @@ def start_message(message):
 
 @bot.message_handler(content_types='text')
 def message_reply(message):
-    text = message.json.get('text')
-    answer = f'https://google.com/?q={"+".join(text.split())}'
+    answer = f'https://google.com/?q={"+".join(message.text.split())}'
     bot.send_message(message.chat.id, answer)
 
 
